@@ -1,3 +1,34 @@
+<?php
+require "config/BD.php";
+require "config/funciones.php";
+
+session_set_cookie_params([
+    'lifetime' => 0,
+    'secure' => true,
+]);
+session_start();
+
+$Login_Fallo = false;
+
+$Boton = $_POST['btn'];
+
+if(empty($_POST)){
+    echo "Nada";
+}else{
+    echo"si hay post";
+}
+
+switch ($Boton) {
+    case 'Iniciar Sesion':
+        
+        break;
+
+        default:
+        echo'Algo ha fallado';
+        break;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +41,7 @@
 
 <body class="bg-slate-950">
     <!--Navbar -->
-    <nav class="flex flex-row z-10 fixed bg-black p-2 w-full text-white font-bold lg:text-xl text-lg">
+    <nav class="flex flex-row z-30 fixed bg-black p-2 w-full text-white font-bold lg:text-xl text-lg">
         <div class=" flex basis-full justify-start items-center">
             <h1>Blog Teoria Sistemas</h1>
         </div>
@@ -42,7 +73,7 @@
 
     <!--relleno-->
     <section class="p-10"></section>
-    
+
 
     <!--entradas del blog-->
     <section class="flex flex-row gap-4 justify-center text-white">
@@ -56,6 +87,29 @@
             <h1 class="font-bold text-lg">Titulo</h1>
         </div>
     </section>
+
+    <form id="login" action="indextemp.php" method="post" class="fixed inset-0 z-10  flex items-center justify-center hidden"> <!--Clases para crear modales-->
+        <div class="text-white flex flex-col gap-2 w-[25%] bg-black border-3 border-white rounded-lg p-2 ">
+            <h1 class="text-lg font-bold text-center">Inicio de sesión</h1>
+            <p class="text-md">Nombre</p>
+            <input name="Nombre" class="border-2 border-white w-full rounded-lg bg-white/25">
+            <p  class="text-md">Contraseña</p>
+            <input name="contraseña" class="border-2 border-white w-full rounded-lg bg-white/25">
+            <div class="flex flex-row w-full justify-center">
+                <input name="btn" type="submit" class="p-2 bg-white border-2 border-gray-900 text-black font-bold rounded-lg cursor-pointer hover:scale-105 hover:bg-black hover:border-white hover:text-white" value="Iniciar Sesion">
+            </div>
+        </div>
+    </form>
+
 </body>
+
+<script>
+    const User = document.getElementById("User");
+    const Login =document.getElementById("login");
+
+    User.addEventListener("click", function(){
+        Login.classList.toggle("hidden");
+    })
+</script>
 
 </html>
