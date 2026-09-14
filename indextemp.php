@@ -113,14 +113,14 @@ if (!empty($_POST)) {
                     </path>
                 </svg>
             </button>
-            <a href="#Inicio" data-target="Inicio"
-                class="hover:text-gray-600 hover:bg-white transition delay-50 duration-500 rounded-lg p-2 lg:visible  lg:inline-block hidden nav-link">INICIO</a>
-            <btn id="precio" onclick="togglePrecio()"
-                class="cursor-pointer hover:text-gray-600 hover:bg-white transition delay-50 duration-500 rounded-lg p-2 lg:visible  lg:inline-block hidden nav-link">
-                PRECIO</btn>
-            <a href="#Contacto" data-target="Contacto"
-                class="hover:text-gray-600 hover:bg-white transition delay-50 duration-500 rounded-lg p-2 lg:visible  lg:inline-block hidden nav-link">CONTACTO</a>
-            <div <?php if(!$Login)echo 'id="User"';?> class="flex flex-row items-center gap-2 px-2 hover:scale-110 transition delay-50 duration-250 cursor-pointer rounded-lg hover:bg-white hover:text-black">
+            <?php if ($Login): ?>   
+                <a href="Admin.php" data-target="Contacto"
+                    class="hover:text-gray-600 hover:bg-white transition delay-50 duration-500 rounded-lg p-2 lg:visible  lg:inline-block hidden nav-link">INGRESAR
+                    ENTRADAS</a>
+            <?php endif; ?>
+            <div <?php if (!$Login)
+                echo 'id="User"'; ?>
+                class="flex flex-row items-center gap-2 px-2 hover:scale-110 transition delay-50 duration-250 cursor-pointer rounded-lg hover:bg-white hover:text-black">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-10 rounded-full">
                     <path stroke-linecap="round" stroke-linejoin="round"
